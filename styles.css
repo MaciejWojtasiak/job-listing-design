@@ -14,7 +14,6 @@
 
 body {
     width: 100vw;
-    min-height: 100vh;
     font-family: 'Spartan', sans-serif;
 }
 
@@ -29,7 +28,6 @@ header {
 
 main {
     width: 100%;
-    height: 1000px;
     background-color: var(--Light-Grayish-Cyan);
     overflow: auto;
 }
@@ -49,14 +47,14 @@ main {
     box-shadow: 0px 10px 15px rgba(0, 0, 0, .125);
 }
 
-.image {
+.logo {
     position: absolute;
     top: -20px;
     left: 20px;
     width: 40px;
 }
 
-.image img {
+.logo img {
     width: 100%;
 }
 
@@ -71,37 +69,38 @@ main {
     margin-top: 15px;
 }
 
-p>span {
+.company>span {
+    display: inline-block;
     padding: 7px;
     border-radius: 25px;
     font-size: .8rem;
 }
 
-#new {
+.new {
     color: var(--Light-Grayish-Cyan);
     background-color: var(--Desaturated-Dark-Cyan);
 }
 
-#featured {
+.featured {
     color: var(--Light-Grayish-Cyan);
     background-color: var(--Very-Dark-Grayish-Cyan);
 }
 
-#company {
+.company {
     color: var(--Desaturated-Dark-Cyan);
     font-weight: 700;
 }
 
-#position {
+.position {
     color: var(--Very-Dark-Grayish-Cyan);
     font-weight: 700;
 }
 
-#description {
+.description {
     color: var(--Dark-Grayish-Cyan);
 }
 
-.language {
+.requirement {
     display: inline-block;
     color: var(--Desaturated-Dark-Cyan);
     font-weight: 700;
