@@ -104,7 +104,6 @@ main {
 }
 
 .requirement {
-    flex: 1;
     display: inline-block;
     color: var(--Desaturated-Dark-Cyan);
     font-weight: 700;
@@ -123,9 +122,16 @@ main {
     }
 
     .info {
+        flex: 2;
         flex-direction: row;
         justify-content: left;
         align-items: center;
+    }
+
+    .requirements {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
     }
 
     .logo {
@@ -133,8 +139,6 @@ main {
         width: 80px;
         margin-right: 20px;
     }
-
-
 
     .text>p {
         margin-top: 5px;
