@@ -15,6 +15,7 @@ function displayData(data) {
         const requirements = addRequirements(job);
         let content = '';
         div.classList.add('card');
+        div.id = `${job.id}`;
         content += description;
         content += requirements;
         div.innerHTML = content;
@@ -23,15 +24,17 @@ function displayData(data) {
 }
 
 function addDescription(job) {
-    return `
-    <div class="logo" id=${job.id}>
+    return `    
+    <div class="info">
+    <div class="logo">
         <img src="${job.logo}" alt="">
     </div>
-    <div class="info">
+    <div class="text">
         <p class="company">${job.company} <span class="new">NEW!</span> <span class="featured">FEATURED</span></p> 
         <p class="position">${job.position}</p>
         <p class="description">${job.postedAt}<span>&#8226;</span> ${job.contract} <span>&#8226;</span> ${job.location}</p>
         <hr style="margin-top:10px ;"> 
+    </div>
     </div>`
 }
 
