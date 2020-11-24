@@ -2,7 +2,7 @@
     const request = await fetch('./data.json');
     const data = await request.json();
 
-    await displayData(data);
+    displayData(data);
 })();
 
 
