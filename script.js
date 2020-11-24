@@ -8,52 +8,29 @@
 
 function displayData(data) {
     const mainDiv = document.getElementById('mainDiv');
-
-    data.forEach(job => {
-        const div = document.createElement('div');
-        const description = addDescription(job);
-        const requirements = addRequirements(job);
-        let content = '';
-        div.classList.add('card');
-        div.id = `${job.id}`;
-        content += description;
-        content += requirements;
-        div.innerHTML = content;
-        mainDiv.appendChild(div);
-    });
-}
-
-function addDescription(job) {
-    return `    
-    <div class="info">
-    <div class="logo">
-        <img src="${job.logo}" alt="">
-    </div>
-    <div class="text">
-        <p class="company">${job.company} <span class="new">NEW!</span> <span class="featured">FEATURED</span></p> 
-        <p class="position">${job.position}</p>
-        <p class="description">${job.postedAt}<span>&#8226;</span> ${job.contract} <span>&#8226;</span> ${job.location}</p>
-        <hr style="margin-top:10px ;"> 
-    </div>
-    </div>`
-}
-
-function addRequirements(job) {
-    const languages = job.languages;
-    const tools = job.tools;
-    const role = job.role;
-    let output = '<div class="requirements">';
-    output += `<div class="requirement">${role}</div>`;
-
-    languages.forEach(lang => {
-        output += `<div class="requirement">${lang}</div>`;
-    });
-
-    tools.forEach(tool => {
-        output += `<div class="requirement">${tool}</div>`;
-    });
-
-    output += '</div>';
-
-    return output;
-}
+    mainDiv.innerHTML = data.map(item => {
+        const { company, contract, id, languages, location, logo, position, postedAt, role, tools } = item;
+        return `<div class="card" id="${id}">
+        <div class="info">
+         <div class="logo">
+        <img src="${logo}" alt="">
+     </div>
+     <div class="text">
+         <p class="company">${company} <span class="new">NEW!</span> <span class="featured">FEATURED</span></p> 
+         <p class="position">${position}</p>
+         <p class="description">${postedAt}<span>&#8226;</span> ${contract} <span>&#8226;</span> ${location}</p>
+         <hr style="margin-top:10px ;"> 
+     </div>
+     </div>
+     <div class="requirements">
+        <div class="requirement">${role}</div>
+        ${languages.map((lang) => {
+            return `<div class="requirement">${lang}</div>`;
+        }).join('')}  
+        ${tools.map((tool) => {
+            return `<div class="requirement">${tool}</div>`;
+        }).join('')}
+     </div>          
+     </div>`;
+    }).join('')
+};
